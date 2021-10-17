@@ -6,10 +6,10 @@ import IdeasContainer from './IdeasContainer'
 
 
 const App: React.FC = () => {
-  const [ideas, setIdeas] = useState<Idea>()
+  const [ideas, setIdeas] = useState<Idea[]>([])
 
-  const addIdea = () => {
-    
+  const addIdea = (newIdea: {id: number, title: string, body: string}) => {
+    setIdeas([...ideas, newIdea])
   };
 
   const removeIdea = () => {
@@ -18,7 +18,7 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <Form />
+      <Form addIdea={addIdea}/>
       <IdeasContainer />
     </div>
   );
