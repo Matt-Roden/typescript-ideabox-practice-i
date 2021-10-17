@@ -1,8 +1,19 @@
 import React from 'react'
 
-const Idea: React.FC = () => {
+interface IdeaProps {
+  id: number;
+  title: string;
+  body: string;
+  removeIdea: (id: number) => void;
+}
+
+const Idea: React.FC<IdeaProps> = ({ id, title, body, removeIdea }) => {
   return (
-    <div className='idea-container'></div>
+    <div className='idea-container' key={id}>
+      <h2 className='title-text'>{title}</h2>
+      <p className='body-text'>{body}</p>
+      <button onClick={removeIdea.bind(null, id)}>Delete</button>
+    </div>
   )
 }
 

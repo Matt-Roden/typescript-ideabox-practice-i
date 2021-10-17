@@ -12,14 +12,15 @@ const App: React.FC = () => {
     setIdeas([...ideas, newIdea])
   };
 
-  const removeIdea = () => {
-
+  const removeIdea = (id: number) => {
+    const updatedIdeas = ideas.filter(idea => idea.id !== id)
+    setIdeas(updatedIdeas)
   };
 
   return (
     <div className="App">
-      <Form addIdea={addIdea}/>
-      <IdeasContainer />
+      <Form addIdea={addIdea} />
+      <IdeasContainer ideas={ideas} removeIdea={removeIdea}/>
     </div>
   );
 }
