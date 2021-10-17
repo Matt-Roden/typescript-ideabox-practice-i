@@ -4,6 +4,7 @@ import './App.css';
 import Form from './Form'
 import IdeasContainer from './IdeasContainer'
 import axios from 'axios'
+import { CircularProgress } from '@mui/material';
 
 interface KanyeQuote {
   quote: string
@@ -38,6 +39,9 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <div>{quote.quote}</div>
+      <div>
+        <CircularProgress />
+      </div>
       <Form addIdea={addIdea} />
       <IdeasContainer ideas={ideas} removeIdea={removeIdea}/>
     </div>
